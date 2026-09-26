@@ -1,6 +1,0 @@
-brand: '[BRAND_NAME]'
-address_street: '[Strasse Nr.]'
-address_city: '[PLZ Ort], Kanton Bern'
-phone: '[Telefonnummer]'
-email: info@[ihre-domain].ch
-base_url: https://www.IHRE-DOMAIN.ch
