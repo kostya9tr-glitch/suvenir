@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kontakt & Marktkalender | [BRAND_NAME]</title>
+  <meta name="description" content="Kontaktieren Sie [BRAND_NAME]: Adresse der Werkstatt im Kanton Bern, Kontaktformular und aktuelle Markttermine.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.IHRE-DOMAIN.ch/kontakt/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="[BRAND_NAME]">
+  <meta property="og:title" content="Kontakt & Marktkalender | [BRAND_NAME]">
+  <meta property="og:description" content="Kontaktieren Sie [BRAND_NAME]: Adresse der Werkstatt im Kanton Bern, Kontaktformular und aktuelle Markttermine.">
+  <meta property="og:url" content="https://www.IHRE-DOMAIN.ch/kontakt/">
+  <meta name="theme-color" content="#AB5236">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.IHRE-DOMAIN.ch/"},{"@type":"ListItem","position":2,"name":"Kontakt"}]}
+  </script>
+</head>
+<body>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <span class="mark" aria-hidden="true">G</span>
+        <span>[BRAND_NAME]
+          <small>Handgemacht in der Schweiz</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="/">Startseite</a></li>
+        <li><a href="/gipsfiguren/">Gipsfiguren</a></li>
+        <li><a href="/magnete/">Magnete</a></li>
+        <li><a href="/kerzen/">Kerzen</a></li>
+        <li class="nav-b2b"><a href="/grosshandel/">Grosshandel</a></li>
+        <li><a href="/ueber-uns/">Über uns</a></li>
+        <li><a href="/kontakt/" aria-current="page">Kontakt</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    
+    <nav class="breadcrumbs container" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Startseite</a></li><li aria-current="page">Kontakt</li>
+      </ol>
+    </nav>
+    <header class="page-hero container">
+      <p class="kicker">Kontakt</p>
+      <h1>Schreiben Sie uns, oder besuchen Sie uns auf dem Markt</h1>
+      <p class="lead">Für Fragen zu Produkten, individuellen Wünschen oder Grosshandel erreichen Sie uns über das Formular, telefonisch oder persönlich auf einem unserer Markttermine.</p>
+    </header>
+
+    <section class="section">
+      <div class="container" style="display:grid; gap:40px; grid-template-columns:1fr; align-items:start;">
+        <div style="display:grid; gap:40px; grid-template-columns:1fr;" class="kontakt-grid">
+          <div>
+            <h2>Werkstatt</h2>
+            <p>[Strasse Nr.]<br>[PLZ Ort], Kanton Bern</p>
+            <p><a href="tel:[Telefonnummer]" style="color:var(--clay); font-weight:600;">[Telefonnummer]</a><br>
+               <a href="mailto:info@[ihre-domain].ch" style="color:var(--clay); font-weight:600;">info@[ihre-domain].ch</a></p>
+            <p class="form-note">Die Werkstatt ist nicht öffentlich zugänglich — besuchen Sie uns auf einem unserer Markttermine, oder vereinbaren Sie telefonisch einen Termin.</p>
+            <div class="map-embed">
+              <iframe src="https://www.google.com/maps?q=Bern,Switzerland&output=embed" title="Kartenausschnitt Werkstatt-Standort" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div>
+            <h2>Nachricht senden</h2>
+            <form class="form-grid" data-demo-form>
+              <div class="form-row-2">
+                <div>
+                  <label for="k-name">Name</label>
+                  <input type="text" id="k-name" name="name" required autocomplete="name">
+                </div>
+                <div>
+                  <label for="k-email">E-Mail</label>
+                  <input type="email" id="k-email" name="email" required autocomplete="email">
+                </div>
+              </div>
+              <div>
+                <label for="k-betreff">Betreff</label>
+                <select id="k-betreff" name="subject">
+                  <option>Allgemeine Frage</option>
+                  <option>Bestellung / Reservation</option>
+                  <option>Individuelles Motiv</option>
+                  <option>Sonstiges</option>
+                </select>
+              </div>
+              <div>
+                <label for="k-nachricht">Nachricht</label>
+                <textarea id="k-nachricht" name="message" required></textarea>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary">Nachricht senden</button>
+              </div>
+              <div class="form-success" role="status">Danke für Ihre Nachricht! Wir melden uns so schnell wie möglich.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="maerkte">
+      <div class="container">
+        <div class="section-head"><div><p class="kicker">Marktkalender</p><h2>Nächste Markttermine</h2></div></div>
+        <div class="market-list" style="max-width:640px;">
+          <div class="market-item"><span class="date">[TT.MM.JJJJ]</span><span class="place">[Marktname], Bern</span></div>
+            <div class="market-item"><span class="date">[TT.MM.JJJJ]</span><span class="place">[Marktname], Thun</span></div>
+            <div class="market-item"><span class="date">[TT.MM.JJJJ]</span><span class="place">[Marktname], Luzern</span></div>
+            <div class="market-item"><span class="date">[TT.MM.JJJJ]</span><span class="place">[Marktname], Zürich</span></div>
+        </div>
+      </div>
+    </section>
+    <style>@media(min-width:800px){.kontakt-grid{grid-template-columns:1fr 1fr;}}</style>
+    
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">[BRAND_NAME]</p>
+        <p style="color:#CBBFA6; max-width:32ch;">Gipsfiguren, Magnete &amp; Kerzen — von Hand gefertigt in [PLZ Ort], Kanton Bern. Zu finden auf Märkten in der ganzen Schweiz.</p>
+      </div>
+      <div>
+        <h4>Sortiment</h4>
+        <ul class="footer-links">
+          <li><a href="/gipsfiguren/">Gipsfiguren</a></li>
+          <li><a href="/magnete/">Magnete</a></li>
+          <li><a href="/kerzen/">Kerzen</a></li>
+          <li><a href="/grosshandel/">Für Wiederverkäufer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul class="footer-links">
+          <li><a href="/ueber-uns/">Über uns</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/kontakt/#maerkte">Marktkalender</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul class="footer-links">
+          <li>[Strasse Nr.], [PLZ Ort], Kanton Bern</li>
+          <li><a href="tel:[Telefonnummer]">[Telefonnummer]</a></li>
+          <li><a href="mailto:info@[ihre-domain].ch">info@[ihre-domain].ch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year>2026</span> [BRAND_NAME]. Alle Rechte vorbehalten.</span>
+      <ul class="footer-links" style="flex-direction:row; gap:16px;">
+        <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

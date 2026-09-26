@@ -1,0 +1,115 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Nach jedem Speichern in der CMS wird automatisch neu gebaut (siehe netlify.toml),
+# damit die statischen Seiten aktuell bleiben.
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+locale: "de"
+
+collections:
+  - name: "settings"
+    label: "Einstellungen"
+    files:
+      - file: "content/settings.yaml"
+        label: "Firmenangaben"
+        name: "settings"
+        fields:
+          - { label: "Markenname", name: "brand", widget: "string" }
+          - { label: "Strasse & Nr.", name: "address_street", widget: "string" }
+          - { label: "PLZ, Ort, Kanton", name: "address_city", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "E-Mail", name: "email", widget: "string" }
+          - { label: "Website-Domain (mit https://)", name: "base_url", widget: "string" }
+
+  - name: "gipsfiguren"
+    label: "Gipsfiguren"
+    folder: "content/produkte/gipsfiguren"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: creative
+    fields:
+      - { label: "URL-Slug (nur Kleinbuchstaben, Bindestriche, keine Umlaute)", name: "slug", widget: "string" }
+      - { label: "Kreativer Produktname", name: "creative", widget: "string" }
+      - { label: "SEO-Name (Material, Motiv, Grösse)", name: "seo", widget: "string" }
+      - { label: "Foto", name: "image", widget: "image" }
+      - { label: "Alt-Text (Bildbeschreibung für Screenreader/SEO)", name: "alt", widget: "string" }
+      - { label: "Preis in CHF (nur Zahl, z. B. 15.00)", name: "price", widget: "string" }
+      - { label: "Material", name: "material", widget: "string" }
+      - { label: "Grösse", name: "size", widget: "string" }
+      - { label: "Verfügbarkeit", name: "stock", widget: "select", options: ["Auf Lager", "Auf Anfrage", "Ausverkauft"], default: "Auf Lager" }
+      - { label: "Beschreibung", name: "desc", widget: "text" }
+      - { label: "Stripe-Zahlungslink (leer lassen für \"Auf Anfrage bestellen\")", name: "stripe_link", widget: "string", required: false, hint: "Payment Link aus dem Stripe-Dashboard, z. B. https://buy.stripe.com/..." }
+
+  - name: "kerzen"
+    label: "Kerzen"
+    folder: "content/produkte/kerzen"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: creative
+    fields:
+      - { label: "URL-Slug (nur Kleinbuchstaben, Bindestriche, keine Umlaute)", name: "slug", widget: "string" }
+      - { label: "Kreativer Produktname", name: "creative", widget: "string" }
+      - { label: "SEO-Name (Material, Motiv, Grösse)", name: "seo", widget: "string" }
+      - { label: "Foto", name: "image", widget: "image" }
+      - { label: "Alt-Text (Bildbeschreibung für Screenreader/SEO)", name: "alt", widget: "string" }
+      - { label: "Preis in CHF (nur Zahl, z. B. 19.00)", name: "price", widget: "string" }
+      - { label: "Material", name: "material", widget: "string" }
+      - { label: "Grösse / Brenndauer", name: "size", widget: "string" }
+      - { label: "Verfügbarkeit", name: "stock", widget: "select", options: ["Auf Lager", "Auf Anfrage", "Ausverkauft"], default: "Auf Lager" }
+      - { label: "Beschreibung", name: "desc", widget: "text" }
+      - { label: "Stripe-Zahlungslink (leer lassen für \"Auf Anfrage bestellen\")", name: "stripe_link", widget: "string", required: false }
+
+  - name: "magnete"
+    label: "Magnete (Galerie)"
+    files:
+      - file: "content/magnete.yaml"
+        label: "Magnet-Übersicht"
+        name: "magnete"
+        fields:
+          - label: "Magnete mit Foto"
+            name: "items"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - { label: "Ort / Motiv-Name", name: "name", widget: "string" }
+              - { label: "Region (für Filter)", name: "group", widget: "select", options: ["bern", "zentralschweiz", "wallis", "weitere"] }
+              - { label: "Foto", name: "img", widget: "image" }
+              - { label: "Alt-Text", name: "alt", widget: "string" }
+              - { label: "Preis in CHF", name: "price", widget: "string" }
+              - { label: "Auf Lager?", name: "stock", widget: "boolean", default: true }
+          - label: "Motive ohne Foto (Platzhalter-Kacheln \"Foto folgt\")"
+            name: "placeholder_motifs"
+            widget: "list"
+            field: { label: "Ortsname", name: "name", widget: "string" }
+            required: false
+
+  - name: "maerkte"
+    label: "Marktkalender"
+    files:
+      - file: "content/maerkte.yaml"
+        label: "Markttermine"
+        name: "maerkte"
+        fields:
+          - label: "Termine"
+            name: "items"
+            widget: "list"
+            summary: "{{date}} — {{place}}"
+            fields:
+              - { label: "Datum (TT.MM.JJJJ)", name: "date", widget: "string" }
+              - { label: "Markt & Ort", name: "place", widget: "string" }
+
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false }
+      - { label: "Kategorie", name: "type", widget: "select", options: ["Lokal", "Produkt", "Saisonal", "Lokal / Saisonal"] }
+      - { label: "Kurzer Teaser (für Übersicht & Meta-Description)", name: "teaser", widget: "text" }
+      - { label: "Artikeltext", name: "body", widget: "markdown" }
